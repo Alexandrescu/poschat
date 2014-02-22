@@ -21,6 +21,8 @@
 		311E542518B8F41F002B94F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E540718B8F41F002B94F2 /* UIKit.framework */; };
 		311E542D18B8F41F002B94F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 311E542B18B8F41F002B94F2 /* InfoPlist.strings */; };
 		311E542F18B8F41F002B94F2 /* PosChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E542E18B8F41F002B94F2 /* PosChatTests.m */; };
+		311E543918B8F823002B94F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E543818B8F823002B94F2 /* CoreLocation.framework */; };
+		311E543B18B8FCB2002B94F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E543A18B8FCB2002B94F2 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		311E542A18B8F41F002B94F2 /* PosChatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PosChatTests-Info.plist"; sourceTree = "<group>"; };
 		311E542C18B8F41F002B94F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		311E542E18B8F41F002B94F2 /* PosChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosChatTests.m; sourceTree = "<group>"; };
+		311E543818B8F823002B94F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		311E543A18B8FCB2002B94F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311E543B18B8FCB2002B94F2 /* MapKit.framework in Frameworks */,
+				311E543918B8F823002B94F2 /* CoreLocation.framework in Frameworks */,
 				311E540618B8F41F002B94F2 /* CoreGraphics.framework in Frameworks */,
 				311E540818B8F41F002B94F2 /* UIKit.framework in Frameworks */,
 				311E540418B8F41F002B94F2 /* Foundation.framework in Frameworks */,
@@ -101,6 +107,8 @@
 		311E540218B8F41F002B94F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				311E543A18B8FCB2002B94F2 /* MapKit.framework */,
+				311E543818B8F823002B94F2 /* CoreLocation.framework */,
 				311E540318B8F41F002B94F2 /* Foundation.framework */,
 				311E540518B8F41F002B94F2 /* CoreGraphics.framework */,
 				311E540718B8F41F002B94F2 /* UIKit.framework */,

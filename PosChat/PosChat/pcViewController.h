@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface pcViewController : UIViewController
+@interface pcViewController : UIViewController <MKMapViewDelegate>
 
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+- (IBAction)fetch:(id)sender;
+- (IBAction)post:(id)sender;
 @end
