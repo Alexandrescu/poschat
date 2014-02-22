@@ -10,4 +10,18 @@
 
 @implementation pcFadeSegue
 
+- (void)perform
+{
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.type = kCATransitionFade;
+
+    [[[[[self sourceViewController] view] window] layer] addAnimation:transition
+                                                               forKey:kCATransitionFade];
+
+    [[self sourceViewController]
+     presentViewController:[self destinationViewController]
+     animated:NO completion:NULL];
+}
+
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface pcFriendsViewController : UITableViewController
-
+@interface pcFriendsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@property (strong,nonatomic) NSMutableArray *history;
 @end

@@ -7,25 +7,51 @@
 //
 
 #import "pcFriendsViewController.h"
-
+#import "pcMapViewController.h"
 @interface pcFriendsViewController ()
 
 @end
 
 @implementation pcFriendsViewController
 
+@synthesize history = _history;
+
+- (NSMutableArray*)history
+{
+    if(!_history)
+        _history = [[NSMutableArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"history" ofType:@"plist"]];
+    return _history;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"locateFriend"])
+    {
+        pcMapViewController *detailViewController = [segue destinationViewController];
+
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+
+        detailViewController.number = [[_history objectAtIndex:myIndexPath.row] valueForKey:@"number"];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Custom initialization
+    _history = [[NSMutableArray alloc] initWithObjects:[NSMutableDictionary dictionaryWithObject:@"9385403" forKey:@"number"], nil];
+    [[_history objectAtIndex:0] setObject:@"2014-02-22T23:26:18Z" forKey:@"expires"];
+    [_history writeToFile:@"history.plist" atomically: YES];
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,25 +70,35 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.history count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+
+    static NSString *CellIdentifier = @"pcCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+
+    NSDate *expired = [[self.history objectAtIndex:indexPath.row] valueForKey:@"expires"];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd MMM yy, HH:mm"];
+
+    cell.textLabel.text = [[self.history objectAtIndex:indexPath.row] valueForKey:@"number"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expired %@",[format stringFromDate:expired]];
+    if ([expired timeIntervalSinceNow] < 0.0)
+    {
+        cell.userInteractionEnabled = NO;
+        cell.imageView.image = [UIImage imageNamed:@"expired"];
+    }
+    else
+        cell.imageView.image = [UIImage imageNamed:@"map-pin-red-hi.png"];
+
     return cell;
 }
 
@@ -116,5 +152,7 @@
 }
 
  */
+
+
 
 @end

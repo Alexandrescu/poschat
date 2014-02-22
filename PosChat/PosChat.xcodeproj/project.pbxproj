@@ -23,8 +23,15 @@
 		311E542F18B8F41F002B94F2 /* PosChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E542E18B8F41F002B94F2 /* PosChatTests.m */; };
 		311E543918B8F823002B94F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E543818B8F823002B94F2 /* CoreLocation.framework */; };
 		311E543B18B8FCB2002B94F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E543A18B8FCB2002B94F2 /* MapKit.framework */; };
-		311E544418B92301002B94F2 /* pcRightSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E544318B92301002B94F2 /* pcRightSegue.m */; };
-		311E544A18B92611002B94F2 /* pcLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E544918B92611002B94F2 /* pcLeftSegue.m */; };
+		311E544D18B92BE8002B94F2 /* pcFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E544C18B92BE8002B94F2 /* pcFadeSegue.m */; };
+		311E545818B93181002B94F2 /* pcFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E545718B93181002B94F2 /* pcFriendsViewController.m */; };
+		311E545A18B93200002B94F2 /* history.plist in Resources */ = {isa = PBXBuildFile; fileRef = 311E545918B93200002B94F2 /* history.plist */; };
+		311E545F18B93DA5002B94F2 /* expired.png in Resources */ = {isa = PBXBuildFile; fileRef = 311E545E18B93DA5002B94F2 /* expired.png */; };
+		311E546218B94395002B94F2 /* pcMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E546118B94395002B94F2 /* pcMapViewController.m */; };
+		311E546618B94FA6002B94F2 /* map-pin-red-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 311E546518B94FA6002B94F2 /* map-pin-red-hi.png */; };
+		311E546A18B95C5F002B94F2 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 311E546718B95C5F002B94F2 /* icon-small.png */; };
+		311E546B18B95C5F002B94F2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 311E546818B95C5F002B94F2 /* icon.png */; };
+		311E546C18B95C5F002B94F2 /* loadscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 311E546918B95C5F002B94F2 /* loadscreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +66,18 @@
 		311E542E18B8F41F002B94F2 /* PosChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosChatTests.m; sourceTree = "<group>"; };
 		311E543818B8F823002B94F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		311E543A18B8FCB2002B94F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		311E544218B92301002B94F2 /* pcRightSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcRightSegue.h; sourceTree = "<group>"; };
-		311E544318B92301002B94F2 /* pcRightSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcRightSegue.m; sourceTree = "<group>"; };
-		311E544818B92611002B94F2 /* pcLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcLeftSegue.h; sourceTree = "<group>"; };
-		311E544918B92611002B94F2 /* pcLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcLeftSegue.m; sourceTree = "<group>"; };
+		311E544B18B92BE8002B94F2 /* pcFadeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcFadeSegue.h; sourceTree = "<group>"; };
+		311E544C18B92BE8002B94F2 /* pcFadeSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcFadeSegue.m; sourceTree = "<group>"; };
+		311E545618B93181002B94F2 /* pcFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcFriendsViewController.h; sourceTree = "<group>"; };
+		311E545718B93181002B94F2 /* pcFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcFriendsViewController.m; sourceTree = "<group>"; };
+		311E545918B93200002B94F2 /* history.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = history.plist; sourceTree = "<group>"; };
+		311E545E18B93DA5002B94F2 /* expired.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expired.png; sourceTree = "<group>"; };
+		311E546018B94395002B94F2 /* pcMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcMapViewController.h; sourceTree = "<group>"; };
+		311E546118B94395002B94F2 /* pcMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcMapViewController.m; sourceTree = "<group>"; };
+		311E546518B94FA6002B94F2 /* map-pin-red-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-pin-red-hi.png"; sourceTree = "<group>"; };
+		311E546718B95C5F002B94F2 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
+		311E546818B95C5F002B94F2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		311E546918B95C5F002B94F2 /* loadscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadscreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +144,12 @@
 				311E541218B8F41F002B94F2 /* pcAppDelegate.h */,
 				311E541318B8F41F002B94F2 /* pcAppDelegate.m */,
 				311E541518B8F41F002B94F2 /* Main.storyboard */,
-				311E544818B92611002B94F2 /* pcLeftSegue.h */,
-				311E544918B92611002B94F2 /* pcLeftSegue.m */,
-				311E544218B92301002B94F2 /* pcRightSegue.h */,
-				311E544318B92301002B94F2 /* pcRightSegue.m */,
+				311E546018B94395002B94F2 /* pcMapViewController.h */,
+				311E546118B94395002B94F2 /* pcMapViewController.m */,
+				311E544B18B92BE8002B94F2 /* pcFadeSegue.h */,
+				311E544C18B92BE8002B94F2 /* pcFadeSegue.m */,
+				311E545618B93181002B94F2 /* pcFriendsViewController.h */,
+				311E545718B93181002B94F2 /* pcFriendsViewController.m */,
 				311E541818B8F41F002B94F2 /* pcViewController.h */,
 				311E541918B8F41F002B94F2 /* pcViewController.m */,
 				311E541B18B8F41F002B94F2 /* Images.xcassets */,
@@ -144,6 +161,12 @@
 		311E540A18B8F41F002B94F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				311E546718B95C5F002B94F2 /* icon-small.png */,
+				311E546818B95C5F002B94F2 /* icon.png */,
+				311E546918B95C5F002B94F2 /* loadscreen.png */,
+				311E545E18B93DA5002B94F2 /* expired.png */,
+				311E546518B94FA6002B94F2 /* map-pin-red-hi.png */,
+				311E545918B93200002B94F2 /* history.plist */,
 				311E540B18B8F41F002B94F2 /* PosChat-Info.plist */,
 				311E540C18B8F41F002B94F2 /* InfoPlist.strings */,
 				311E540F18B8F41F002B94F2 /* main.m */,
@@ -248,7 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				311E541C18B8F41F002B94F2 /* Images.xcassets in Resources */,
+				311E545A18B93200002B94F2 /* history.plist in Resources */,
 				311E540E18B8F41F002B94F2 /* InfoPlist.strings in Resources */,
+				311E546C18B95C5F002B94F2 /* loadscreen.png in Resources */,
+				311E546A18B95C5F002B94F2 /* icon-small.png in Resources */,
+				311E546B18B95C5F002B94F2 /* icon.png in Resources */,
+				311E546618B94FA6002B94F2 /* map-pin-red-hi.png in Resources */,
+				311E545F18B93DA5002B94F2 /* expired.png in Resources */,
 				311E541718B8F41F002B94F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,11 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311E544D18B92BE8002B94F2 /* pcFadeSegue.m in Sources */,
+				311E545818B93181002B94F2 /* pcFriendsViewController.m in Sources */,
 				311E541A18B8F41F002B94F2 /* pcViewController.m in Sources */,
-				311E544A18B92611002B94F2 /* pcLeftSegue.m in Sources */,
 				311E541018B8F41F002B94F2 /* main.m in Sources */,
+				311E546218B94395002B94F2 /* pcMapViewController.m in Sources */,
 				311E541418B8F41F002B94F2 /* pcAppDelegate.m in Sources */,
-				311E544418B92301002B94F2 /* pcRightSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +511,7 @@
 				311E543418B8F41F002B94F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		311E543518B8F41F002B94F2 /* Build configuration list for PBXNativeTarget "PosChatTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +520,7 @@
 				311E543718B8F41F002B94F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
