@@ -1,5 +1,5 @@
 //
-//  pcRightSegue.h
+//  pcMapViewController.h
 //  PosChat
 //
 //  Created by Robert Bastian on 22/02/2014.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface pcRightSegue : UIStoryboardSegue
+@interface pcMapViewController : UIViewController
 
 @end

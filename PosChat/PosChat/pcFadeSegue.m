@@ -1,13 +1,13 @@
 //
-//  pcLeftSegue.h
+//  pcFadeSegue.m
 //  PosChat
 //
 //  Created by Robert Bastian on 22/02/2014.
 //  Copyright (c) 2014 Robert Bastian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "pcFadeSegue.h"
 
-@interface pcLeftSegue : UIStoryboardSegue
+@implementation pcFadeSegue
 
 @end
