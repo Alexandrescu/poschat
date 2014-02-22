@@ -23,6 +23,8 @@
 		311E542F18B8F41F002B94F2 /* PosChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E542E18B8F41F002B94F2 /* PosChatTests.m */; };
 		311E543918B8F823002B94F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E543818B8F823002B94F2 /* CoreLocation.framework */; };
 		311E543B18B8FCB2002B94F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311E543A18B8FCB2002B94F2 /* MapKit.framework */; };
+		311E544418B92301002B94F2 /* pcRightSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E544318B92301002B94F2 /* pcRightSegue.m */; };
+		311E544A18B92611002B94F2 /* pcLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 311E544918B92611002B94F2 /* pcLeftSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		311E542E18B8F41F002B94F2 /* PosChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosChatTests.m; sourceTree = "<group>"; };
 		311E543818B8F823002B94F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		311E543A18B8FCB2002B94F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		311E544218B92301002B94F2 /* pcRightSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcRightSegue.h; sourceTree = "<group>"; };
+		311E544318B92301002B94F2 /* pcRightSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcRightSegue.m; sourceTree = "<group>"; };
+		311E544818B92611002B94F2 /* pcLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcLeftSegue.h; sourceTree = "<group>"; };
+		311E544918B92611002B94F2 /* pcLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pcLeftSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,10 @@
 				311E541218B8F41F002B94F2 /* pcAppDelegate.h */,
 				311E541318B8F41F002B94F2 /* pcAppDelegate.m */,
 				311E541518B8F41F002B94F2 /* Main.storyboard */,
+				311E544818B92611002B94F2 /* pcLeftSegue.h */,
+				311E544918B92611002B94F2 /* pcLeftSegue.m */,
+				311E544218B92301002B94F2 /* pcRightSegue.h */,
+				311E544318B92301002B94F2 /* pcRightSegue.m */,
 				311E541818B8F41F002B94F2 /* pcViewController.h */,
 				311E541918B8F41F002B94F2 /* pcViewController.m */,
 				311E541B18B8F41F002B94F2 /* Images.xcassets */,
@@ -259,8 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				311E541A18B8F41F002B94F2 /* pcViewController.m in Sources */,
+				311E544A18B92611002B94F2 /* pcLeftSegue.m in Sources */,
 				311E541018B8F41F002B94F2 /* main.m in Sources */,
 				311E541418B8F41F002B94F2 /* pcAppDelegate.m in Sources */,
+				311E544418B92301002B94F2 /* pcRightSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
