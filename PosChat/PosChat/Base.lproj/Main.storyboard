@@ -63,6 +63,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gzW-sn-ruA"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Friends" id="2kq-Ce-p45"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6br-Af-qyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,7 +431,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0ey-bt-eI0"/>
-        <segue reference="ro4-1V-R5b"/>
+        <segue reference="6rE-CF-lea"/>
+        <segue reference="H3Q-PE-MCN"/>
     </inferredMetricsTieBreakers>
 </document>

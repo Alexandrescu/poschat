@@ -24,8 +24,11 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) MKAnnotationView *currentAnnotation;
 
+
 - (IBAction)post:(id)sender;
 - (IBAction)stepperChanged:(UIStepper*)sender;
 - (IBAction)updateExpiryTime:(id)sender;
 - (IBAction)cancelPost:(id)sender;
+- (IBAction)contact:(id)sender;
+
 @end

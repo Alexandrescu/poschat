@@ -27,6 +27,18 @@
     return self;
 }
 
+- (IBAction)refresh:(id)sender
+{
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *userid = [standardDefaults stringForKey:@"number"];
+    NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/fetch.php?target=%@",userid]]];
+    NSError *error=nil;
+    list =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"locateFriend"])
@@ -43,11 +55,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *userid = [standardDefaults stringForKey:@"number"];
-    NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/fetch.php?target=%@",userid]]];
-    NSError *error=nil;
-    list =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+
+    [self refresh:nil];
     self.navigationController.toolbarHidden = NO;
 
 }

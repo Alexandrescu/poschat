@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		311E540018B8F41F002B94F2 /* PosChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PosChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		311E540018B8F41F002B94F2 /* QwikFind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QwikFind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		311E540318B8F41F002B94F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		311E540518B8F41F002B94F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		311E540718B8F41F002B94F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -119,7 +119,7 @@
 		311E540118B8F41F002B94F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				311E540018B8F41F002B94F2 /* PosChat.app */,
+				311E540018B8F41F002B94F2 /* QwikFind.app */,
 				311E542118B8F41F002B94F2 /* PosChatTests.xctest */,
 			);
 			name = Products;
@@ -210,7 +210,7 @@
 			);
 			name = PosChat;
 			productName = PosChat;
-			productReference = 311E540018B8F41F002B94F2 /* PosChat.app */;
+			productReference = 311E540018B8F41F002B94F2 /* QwikFind.app */;
 			productType = "com.apple.product-type.application";
 		};
 		311E542018B8F41F002B94F2 /* PosChatTests */ = {
@@ -433,7 +433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PosChat/PosChat-Prefix.pch";
 				INFOPLIST_FILE = "PosChat/PosChat-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QwikFind;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -447,7 +447,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PosChat/PosChat-Prefix.pch";
 				INFOPLIST_FILE = "PosChat/PosChat-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QwikFind;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

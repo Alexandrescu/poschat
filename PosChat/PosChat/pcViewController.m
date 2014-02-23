@@ -7,6 +7,7 @@
 //
 
 #import "pcViewController.h"
+#import <AddressBook/AddressBook.h>
 
 @interface pcViewController ()
 
@@ -18,6 +19,11 @@
 @synthesize gobutton;
 @synthesize currentAnnotation;
 
+
+- (IBAction)contact:(id)sender
+{
+    
+}
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
@@ -102,7 +108,9 @@
 {
     int expires = _expiryTime.value;
     NSLog(@"%@,%@",_number.text,_comment.text);
-    NSData *result = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/post.php?target=%@&source=%@&lat=%f&lon=%f&expiry=%d&comment=%@",_number.text,userid,locationManager.location.coordinate.latitude,locationManager.location.coordinate.longitude,expires,_comment.text]]];
+    NSString *url = [NSString stringWithFormat:@"http://216.151.208.196/post.php?target=%@&source=%@&lat=%f&lon=%f&expiry=%d&comment=%@",_number.text,userid,locationManager.location.coordinate.latitude,locationManager.location.coordinate.longitude,expires,[_comment.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(url);
+    NSData *result = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     [self cancelPost:nil];
     /*NSArray *success = [NSArray arrayWithObject:result];
     if([[success objectAtIndex:0] intValue] == 1)
