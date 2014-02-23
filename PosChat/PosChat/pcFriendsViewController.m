@@ -8,20 +8,16 @@
 
 #import "pcFriendsViewController.h"
 #import "pcMapViewController.h"
+#import "pcViewController.h"
+#import <UIKit/UIKit.h>
+
 @interface pcFriendsViewController ()
 
 @end
 
 @implementation pcFriendsViewController
-
-@synthesize history = _history;
-
-- (NSMutableArray*)history
-{
-    if(!_history)
-        _history = [[NSMutableArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"history" ofType:@"plist"]];
-    return _history;
-}
+@synthesize list;
+@synthesize tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,26 +36,30 @@
 
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
 
-        detailViewController.number = [[_history objectAtIndex:myIndexPath.row] valueForKey:@"number"];
+        detailViewController.sourceid = [[list objectForKey:[NSString stringWithFormat:@"%d",myIndexPath.row]] objectForKey:@"0"];
     }
-}
+    else
+    {
+        pcViewController *detailViewController = [segue destinationViewController];
+    }}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Custom initialization
-    _history = [[NSMutableArray alloc] initWithObjects:[NSMutableDictionary dictionaryWithObject:@"9385403" forKey:@"number"], nil];
-    [[_history objectAtIndex:0] setObject:@"2014-02-22T23:26:18Z" forKey:@"expires"];
-    [_history writeToFile:@"history.plist" atomically: YES];
-
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *userid = [standardDefaults stringForKey:@"number"];
+    NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/fetch.php?target=%@",userid]]];
+    NSError *error=nil;
+    list =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    UISwipeGestureRecognizer * swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
+    [swipeRecognizer setDelegate:self];
+    [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [tableView addGestureRecognizer:swipeRecognizer];
 }
 
+- (void) onSwipeRight:(UISwipeGestureRecognizer *)recognizer
+{
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,7 +76,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.history count];
+    return [self.list count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,19 +85,34 @@
     static NSString *CellIdentifier = @"pcCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
-    NSDate *expired = [[self.history objectAtIndex:indexPath.row] valueForKey:@"expires"];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"dd MMM yy, HH:mm"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
 
-    cell.textLabel.text = [[self.history objectAtIndex:indexPath.row] valueForKey:@"number"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expired %@",[format stringFromDate:expired]];
-    if ([expired timeIntervalSinceNow] < 0.0)
+    NSDictionary *element = [list objectForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+    int unixExpires = ([[element objectForKey:@"1"] intValue]+60*[[element objectForKey:@"2"] intValue]);
+    NSDate *expires = [NSDate dateWithTimeIntervalSince1970:unixExpires];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd MMM, HH:mm"];
+
+    UILabel *num = (UILabel *)[cell viewWithTag:100];
+    UILabel *exp = (UILabel *)[cell viewWithTag:101];
+    UILabel *note = (UILabel *)[cell viewWithTag:102];
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:103];
+    num.text = [element objectForKey:@"0"];
+    if (unixExpires < [[NSDate date] timeIntervalSince1970])
     {
         cell.userInteractionEnabled = NO;
-        cell.imageView.image = [UIImage imageNamed:@"expired"];
+        imageView.image = [UIImage imageNamed:@"expired@2x.png"];
+        exp.text = [NSString stringWithFormat:@"Expired\n%@",[format stringFromDate:expires]];
+
     }
     else
-        cell.imageView.image = [UIImage imageNamed:@"map-pin-red-hi.png"];
+    {
+        imageView.image = [UIImage imageNamed:@"active@2x.png"];
+        exp.text = [NSString stringWithFormat:@"Expires\n%@",[format stringFromDate:expires]];
+    }
+    note.text = [element objectForKey:@"3"];
 
     return cell;
 }

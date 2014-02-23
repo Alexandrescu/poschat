@@ -13,23 +13,58 @@
 @end
 
 @implementation pcViewController
+@synthesize userid;
+@synthesize locationManager;
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    [standardDefaults setObject:[[alertView textFieldAtIndex:0] text] forKey:@"number"];
+    [standardDefaults synchronize];
+}
+
+- (void)request_number
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:@"Please enter you phone number" delegate:self cancelButtonTitle:@"Submit" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    if ([standardDefaults stringForKey:@"number"] == nil)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:@"Please enter you phone number" delegate:self cancelButtonTitle:@"Submit" otherButtonTitles:nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alert show];
+    }
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+    standardDefaults = [NSUserDefaults standardUserDefaults];
+    userid = [standardDefaults stringForKey:@"number"];
 	// Do any additional setup after loading the view, typically from a nib.
     [_mapView setMapType:MKMapTypeStandard];
     [_mapView setZoomEnabled:YES];
     [_mapView setScrollEnabled:NO];
     [_mapView setPitchEnabled:NO];
     [_mapView setShowsUserLocation:YES];
-    [_mapView setUserTrackingMode:MKUserTrackingModeFollow];
+
     [_mapView setDelegate:self];
+    [self updateExpiryTime:nil];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 
     [self.view addGestureRecognizer:tap];
 }
 
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    [_mapView setUserTrackingMode:MKUserTrackingModeNone];
+    [_mapView setUserTrackingMode:MKUserTrackingModeFollow];
+    [manager stopUpdatingLocation];
+
+}
 - (void)dismissKeyboard {
     [_number resignFirstResponder];
 }
@@ -46,45 +81,11 @@
     return NO;
 }
 
-- (IBAction)fetch:(id)sender
-{
-    NSString *uid=@"adsf";
-    NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/fetch.php?user=%@",uid]]];
-    NSError *error=nil;
-    NSDictionary *response=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-
-    if(!error)
-    {
-        if ([[response objectForKey:@"Valid"] intValue] == 1)
-        {
-            MKCoordinateSpan span;
-            span.latitudeDelta = 0.002;
-            span.longitudeDelta = 0.002;
-
-            // define starting point for map
-            CLLocationCoordinate2D start;
-            start.latitude = [[response objectForKey:@"Lat"] floatValue];
-            start.longitude = [[response objectForKey:@"Long"] floatValue];
-
-            // create region, consisting of span and location
-            MKCoordinateRegion region;
-            region.span = span;
-            region.center = start;
-            
-            // move the map to our location
-            [_mapView setRegion:region animated:YES];
-        }
-        else
-        {
-            [[[UIAlertView alloc] initWithTitle:@"Location expired" message:@"Your friend's location is no longer available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil] show];
-        }
-    }
-}
-
 - (IBAction)post:(id)sender
 {
     NSString *targetNum = _number.text;
     int expires = _expiryTime.value;
+    [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/post.php?target=%@&source=%@&lat=%f&lon=%f&expiry=%d",targetNum,userid,locationManager.location.coordinate.latitude,locationManager.location.coordinate.longitude,expires]]];
     [self cancelPost:nil];
 }
 

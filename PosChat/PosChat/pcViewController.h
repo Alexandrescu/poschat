@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface pcViewController : UIViewController <MKMapViewDelegate,UITextFieldDelegate>
+@interface pcViewController : UIViewController <MKMapViewDelegate,UITextFieldDelegate,UIAlertViewDelegate,CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIStepper *expiryTime;
@@ -17,8 +18,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *expiryTimeLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *autoupdate;
 @property (strong, nonatomic) IBOutlet UITextField *number;
+@property (strong, nonatomic) NSString *userid;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
-- (IBAction)fetch:(id)sender;
 - (IBAction)post:(id)sender;
 - (IBAction)stepperChanged:(UIStepper*)sender;
 - (IBAction)updateExpiryTime:(id)sender;

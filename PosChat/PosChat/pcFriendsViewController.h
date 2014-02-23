@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface pcFriendsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
-@property (strong,nonatomic) NSMutableArray *history;
+@interface pcFriendsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate>
+@property (strong,nonatomic) NSDictionary *list;
+@property (strong,nonatomic) IBOutlet UITableView *tableView;
 @end

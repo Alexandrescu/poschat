@@ -10,10 +10,10 @@
 #import <MapKit/MapKit.h>
 
 @interface pcMapViewController : UIViewController
-@property (strong,nonatomic) NSString* number;
+@property (strong,nonatomic) NSString* sourceid;
 @property (strong,nonatomic) IBOutlet MKMapView *map;
 @property (strong,nonatomic) IBOutlet UIButton *cancelButton;
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+-(IBAction)close:(id)sender;
 
 @end
