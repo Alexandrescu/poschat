@@ -22,7 +22,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = self.sourceid;
+    if ([sourceid isEqualToString:@"01604633272"])
+        self.title = @"Andrei A";
+    else
+        self.title = self.sourceid;
     NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/locate.php?source=%@&id=%@",sourceid,entryid]]];
     NSError *error=nil;
     NSArray *response=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
@@ -41,6 +44,7 @@
 
     MKPointAnnotation *newAnnotation = [[MKPointAnnotation alloc] init];
     newAnnotation.coordinate = track;
+    ;
     newAnnotation.title = [response objectAtIndex:2];
     //newAnnotation.subtitle = [response objectAtIndex:2];
     [self.map setRegion:region animated:TRUE];

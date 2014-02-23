@@ -27,15 +27,15 @@
     return self;
 }
 
-- (IBAction)refresh:(id)sender
+- (void)refresh
 {
     NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userid = [standardDefaults stringForKey:@"number"];
     NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/fetch.php?target=%@",userid]]];
     NSError *error=nil;
     list =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    [self.tableView reloadData];
     [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 
 }
 
@@ -55,12 +55,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
+    UIRefreshControl *r = [[UIRefreshControl alloc] init];
+    r.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [r addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = r;
 
-    [self refresh:nil];
+    [self refresh];
     self.navigationController.toolbarHidden = NO;
 
 }
@@ -107,7 +107,8 @@
     UILabel *exp = (UILabel *)[cell viewWithTag:101];
     UILabel *note = (UILabel *)[cell viewWithTag:102];
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:103];
-    num.text = [element objectForKey:@"0"];
+    if ([[element objectForKey:@"0"] isEqualToString:@"01604633272"])
+         num.text = @"Andrei A";
     if (unixExpires < [[NSDate date] timeIntervalSince1970])
     {
         cell.userInteractionEnabled = NO;
@@ -124,6 +125,8 @@
 
     return cell;
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.

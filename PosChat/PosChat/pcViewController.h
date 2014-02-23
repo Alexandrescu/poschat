@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface pcViewController : UIViewController <MKMapViewDelegate,UITextFieldDelegate,UIAlertViewDelegate,CLLocationManagerDelegate>
+@interface pcViewController : UIViewController <MKMapViewDelegate,UITextFieldDelegate,UIAlertViewDelegate,CLLocationManagerDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIStepper *expiryTime;

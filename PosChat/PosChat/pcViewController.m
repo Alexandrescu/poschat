@@ -7,7 +7,6 @@
 //
 
 #import "pcViewController.h"
-#import <AddressBook/AddressBook.h>
 
 @interface pcViewController ()
 
@@ -22,7 +21,28 @@
 
 - (IBAction)contact:(id)sender
 {
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+-(void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
     
+}
+-(BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    CFStringRef addressBookMobile = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    NSString *targetNumber = (__bridge NSString*) ABMultiValueCopyValueAtIndex(addressBookMobile, ABMultiValueGetIndexForIdentifier(addressBookMobile, identifier));
+    self.number.text = targetNumber;
+    [peoplePicker dismissViewControllerAnimated:YES completion:nil];
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    return YES;
+
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -107,9 +127,9 @@
 - (IBAction)post:(id)sender
 {
     int expires = _expiryTime.value;
-    NSLog(@"%@,%@",_number.text,_comment.text);
+    //NSLog(@"%@,%@",_number.text,_comment.text);
     NSString *url = [NSString stringWithFormat:@"http://216.151.208.196/post.php?target=%@&source=%@&lat=%f&lon=%f&expiry=%d&comment=%@",_number.text,userid,locationManager.location.coordinate.latitude,locationManager.location.coordinate.longitude,expires,[_comment.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(url);
+    //NSLog(url);
     NSData *result = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     [self cancelPost:nil];
     /*NSArray *success = [NSArray arrayWithObject:result];
