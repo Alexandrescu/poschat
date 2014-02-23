@@ -11,6 +11,7 @@
 
 @interface pcMapViewController : UIViewController
 @property (strong,nonatomic) NSString* sourceid;
+@property (strong,nonatomic) NSString* entryid;
 @property (strong,nonatomic) IBOutlet MKMapView *map;
 @property (strong,nonatomic) IBOutlet UIButton *cancelButton;
 

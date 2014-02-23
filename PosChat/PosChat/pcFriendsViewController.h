@@ -10,5 +10,4 @@
 
 @interface pcFriendsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource,UIGestureRecognizerDelegate>
 @property (strong,nonatomic) NSDictionary *list;
-@property (strong,nonatomic) IBOutlet UITableView *tableView;
 @end

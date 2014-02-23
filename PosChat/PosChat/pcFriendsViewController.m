@@ -17,7 +17,6 @@
 
 @implementation pcFriendsViewController
 @synthesize list;
-@synthesize tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,11 +36,9 @@
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
 
         detailViewController.sourceid = [[list objectForKey:[NSString stringWithFormat:@"%d",myIndexPath.row]] objectForKey:@"0"];
+        detailViewController.entryid = [[list objectForKey:[NSString stringWithFormat:@"%d",myIndexPath.row]] objectForKey:@"4"];
     }
-    else
-    {
-        pcViewController *detailViewController = [segue destinationViewController];
-    }}
+}
 
 - (void)viewDidLoad
 {
@@ -51,10 +48,8 @@
     NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/fetch.php?target=%@",userid]]];
     NSError *error=nil;
     list =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    UISwipeGestureRecognizer * swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
-    [swipeRecognizer setDelegate:self];
-    [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [tableView addGestureRecognizer:swipeRecognizer];
+    self.navigationController.toolbarHidden = NO;
+
 }
 
 - (void) onSwipeRight:(UISwipeGestureRecognizer *)recognizer
@@ -110,7 +105,7 @@
     else
     {
         imageView.image = [UIImage imageNamed:@"active@2x.png"];
-        exp.text = [NSString stringWithFormat:@"Expires\n%@",[format stringFromDate:expires]];
+        exp.text = [NSString stringWithFormat:@"Sent\n%@",[format stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[element objectForKey:@"1"] intValue]]]];
     }
     note.text = [element objectForKey:@"3"];
 

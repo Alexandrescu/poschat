@@ -15,6 +15,8 @@
 @implementation pcViewController
 @synthesize userid;
 @synthesize locationManager;
+@synthesize gobutton;
+@synthesize currentAnnotation;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -54,10 +56,24 @@
     [_mapView setDelegate:self];
     [self updateExpiryTime:nil];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-
+    [gobutton setHidden:YES];
     [self.view addGestureRecognizer:tap];
+    _comment.inputView = nil;
+
 }
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    currentAnnotation = [mapView viewForAnnotation:userLocation];
+    currentAnnotation.canShowCallout = NO;
+    
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    [gobutton sendActionsForControlEvents: UIControlEventTouchUpInside];
+    [mapView deselectAnnotation:[[mapView selectedAnnotations] objectAtIndex:0] animated:NO];
+}
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     [_mapView setUserTrackingMode:MKUserTrackingModeNone];
@@ -67,6 +83,7 @@
 }
 - (void)dismissKeyboard {
     [_number resignFirstResponder];
+    [_comment resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,10 +100,18 @@
 
 - (IBAction)post:(id)sender
 {
-    NSString *targetNum = _number.text;
     int expires = _expiryTime.value;
-    [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/post.php?target=%@&source=%@&lat=%f&lon=%f&expiry=%d",targetNum,userid,locationManager.location.coordinate.latitude,locationManager.location.coordinate.longitude,expires]]];
+    NSLog(@"%@,%@",_number.text,_comment.text);
+    NSData *result = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/post.php?target=%@&source=%@&lat=%f&lon=%f&expiry=%d&comment=%@",_number.text,userid,locationManager.location.coordinate.latitude,locationManager.location.coordinate.longitude,expires,_comment.text]]];
     [self cancelPost:nil];
+    /*NSArray *success = [NSArray arrayWithObject:result];
+    if([[success objectAtIndex:0] intValue] == 1)
+        [self cancelPost:nil];
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please try again" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        [alert show];
+    }*/
 }
 
 - (IBAction)stepperChanged:(UIStepper*)sender

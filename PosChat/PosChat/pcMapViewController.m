@@ -16,13 +16,14 @@
 
 @implementation pcMapViewController
 @synthesize sourceid;
+@synthesize entryid;
 @synthesize map;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = self.sourceid;
-    NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/locate.php?source=%@",sourceid]]];
+    NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://216.151.208.196/locate.php?source=%@&id=%@",sourceid,entryid]]];
     NSError *error=nil;
     NSArray *response=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     double lat = [[response objectAtIndex:0] doubleValue];
