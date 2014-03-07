@@ -1,6 +1,6 @@
 <?php
 	require('db_connect.php');
-        $query = "SELECT lat,lon FROM location L WHERE source_id = " . $_GET['source'];
+        $query = "SELECT lat,lon,comment FROM location L WHERE id= '".$_GET['id']."'";
         $result = $mysqli->query($query);
 	while($r = $result->fetch_row()) {
 		$rows[] = $r;
