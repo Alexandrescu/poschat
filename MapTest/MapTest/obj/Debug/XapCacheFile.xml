@@ -1,0 +1,23 @@
+﻿<xapCache source="D:\Info\HackKings\MapTest\MapTest\Bin\Debug\MapTest_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="23/02/2014 09:57:22">
+  <file source="D:\Info\HackKings\MapTest\MapTest\obj\Debug\MapTest.dll" archivePath="MapTest.dll" lastWriteTime="23/02/2014 09:57:22" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="22/02/2014 17:11:25" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\FlipCycleTileMedium.png" archivePath="Assets\FlipCycleTileMedium.png" lastWriteTime="22/02/2014 22:28:45" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\SplashScreenImage.png" archivePath="Assets\SplashScreenImage.png" lastWriteTime="22/02/2014 22:28:45" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="22/02/2014 17:11:25" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="22/02/2014 17:11:25" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="22/02/2014 17:11:25" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="22/02/2014 17:11:25" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="23/02/2014 00:21:43" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Bin\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="22/02/2014 17:11:25" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="22/02/2014 22:28:45" />
+  <file source="D:\Info\HackKings\MapTest\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="22/02/2014 20:50:44" />
+  <file source="D:\Info\HackKings\MapTest\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="23/02/2014 00:19:23" />
+  <file source="D:\Info\HackKings\MapTest\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="23/02/2014 00:19:23" />
+  <file source="D:\Info\HackKings\MapTest\MapTest\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="23/02/2014 03:53:36" />
+</xapCache>
